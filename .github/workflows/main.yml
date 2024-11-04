@@ -8,16 +8,15 @@ jobs:
     runs-on: ubuntu-latest # 构建环境使用 ubuntu
     steps:         
       - name: Checkout # 获取源码
-        uses: actions/checkout@v3 
+        uses: actions/checkout@v1 
         with:
+          node-version: '16.13.1'
           persist-credentials: false
 
       - name: install deps
         run: npm install
       - name: build app
         run: npm run build
-      - name: Deploy to Server
-        run: easingthemes/ssh-deploy@v2.1.5
       
       - name: Deploy to Tencent Cloud
         uses: easingthemes/ssh-deploy@v2.1.5
