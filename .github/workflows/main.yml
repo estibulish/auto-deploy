@@ -23,7 +23,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: '-rltgoDzvO --delete'
-          SOURCE: dist # 这是要复制到静态服务器的文件夹名称
+          SOURCE: dist/* # 这是要复制到静态服务器的文件夹名称
           REMOTE_HOST: '43.139.148.160' # 你的腾讯云公网地址
           REMOTE_USER: root # 腾讯云登录后默认为 root 用户
           TARGET: /app/auto-deploy # 打包后的 dist 文件夹将放在/app/auto-deploy
